@@ -1,3 +1,4 @@
+/*
 package com.squadseven.timesheet.controller;
 
 import com.squadseven.timesheet.model.User;
@@ -33,4 +34,4 @@ public class UserController {
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
     }
-}
+}*/

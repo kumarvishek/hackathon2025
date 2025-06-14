@@ -17,9 +17,5 @@ public class TimeSheetEntryServiceImpl implements TimeSheetEntry {
         return tseRepo.findById(EntryId);
     }
 
-//    public Optional<User> getContractorNameByContactorId(Integer ContactorId){
-//        return tseRepo.
-//    }
-
 
 }
