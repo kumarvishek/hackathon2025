@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Entity
 @Data
-public class TimeSheetEntry {
+public class TimeSheetEntryModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

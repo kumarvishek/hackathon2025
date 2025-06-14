@@ -1,7 +1,7 @@
 package com.squadseven.timesheet.controller;
 
 import com.squadseven.timesheet.model.User;
-import com.squadseven.timesheet.service.UserService;
+import com.squadseven.timesheet.service.Impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @GetMapping
     public List<User> getAllUsers() {

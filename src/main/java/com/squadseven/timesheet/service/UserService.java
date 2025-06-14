@@ -1,2 +1,4 @@
-package com.squadseven.timesheet.service;public interface UserService {
+package com.squadseven.timesheet.service;
+
+public interface UserService {
 }
