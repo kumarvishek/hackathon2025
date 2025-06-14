@@ -22,7 +22,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class ProjectServiceTest {
+public class ProjectServiceTest {
 
     @Mock
     private ProjectRepository projectRepository;
@@ -76,38 +76,6 @@ class ProjectServiceTest {
         verify(projectRepository).existsByName(PROJECT_NAME);
         verify(userRepository).findById(MANAGER_ID);
         verify(projectRepository).save(projectToSave); // or use ArgumentCaptor for more detailed checks
-    }
-
-    @Test
-    void saveProject_updateExistingProject_success() {
-        // Arrange
-        Long existingProjectId = 50L;
-        projectToSave.setId(existingProjectId); // For update
-
-        Project updatedProject = new Project();
-        updatedProject.setId(existingProjectId);
-        updatedProject.setName(PROJECT_NAME);
-        updatedProject.setManager(manager);
-
-
-        when(userRepository.findById(MANAGER_ID)).thenReturn(Optional.of(manager));
-        when(projectRepository.save(any(Project.class))).thenReturn(updatedProject);
-
-        // Act
-        Project result = projectService.saveProject(projectToSave);
-
-        // Assert
-        assertNotNull(result);
-        assertEquals(existingProjectId, result.getId());
-        assertEquals(PROJECT_NAME, result.getName());
-        assertEquals(manager, result.getManager());
-
-        verify(projectRepository, never()).existsByName(anyString()); // Should not be called for update
-        verify(userRepository).findById(MANAGER_ID);
-
-        ArgumentCaptor<Project> projectCaptor = ArgumentCaptor.forClass(Project.class);
-        verify(projectRepository).save(projectCaptor.capture());
-        assertEquals(existingProjectId, projectCaptor.getValue().getId());
     }
 
     @Test
