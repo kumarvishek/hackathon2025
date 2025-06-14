@@ -32,7 +32,7 @@ public class SecurityConfig {
                 .httpBasic().disable()
                 .formLogin().disable()
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/login/**").permitAll()
+                        .requestMatchers("*").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

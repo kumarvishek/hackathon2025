@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import static com.squadseven.timesheet.util.Constants.DRAFT;
 
 @RestController
-@RequestMapping("/api/timesheet")
+@RequestMapping("/timesheet")
 public class TimesheetController {
 
     @Autowired

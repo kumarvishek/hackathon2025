@@ -15,4 +15,8 @@ public class Activity {
 
     public Activity(int i, String development) {
     }
+
+    public Activity() {
+
+    }
 }
