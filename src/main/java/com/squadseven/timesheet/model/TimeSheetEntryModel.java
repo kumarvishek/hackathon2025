@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -21,4 +22,14 @@ public class TimeSheetEntryModel {
     private Date date;
     private Integer HoursWorked;
     private String Comments;
+
+    public TimeSheetEntryModel(Integer entryId, Integer contractorId, Integer projectCode, Integer activityCode, Date date, Integer hoursWorked, String comments) {
+        EntryId = entryId;
+        ContractorId = contractorId;
+        ProjectCode = projectCode;
+        ActivityCode = activityCode;
+        this.date = date;
+        HoursWorked = hoursWorked;
+        Comments = comments;
+    }
 }

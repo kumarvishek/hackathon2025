@@ -6,4 +6,6 @@ import java.util.Optional;
 
 public interface TimeSheetEntry {
     Optional<TimeSheetEntryModel> getContactorIdByEntryId(Integer EntryId);
+
+    TimeSheetEntryModel addEntry(TimeSheetEntryModel tSEM);
 }
