@@ -1,5 +1,6 @@
 package com.squadseven.timesheet.service;
 
+import com.squadseven.timesheet.exception.ActivityException;
 import com.squadseven.timesheet.model.Activity;
 import com.squadseven.timesheet.repository.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class ActivityService {
 
     public Activity createActivity(Activity activity) {
         if (activityRepository.findByName(activity.getName()).isPresent()) {
-            throw new IllegalArgumentException("ActivityType with this name already exists.");
+            throw new ActivityException("Activity with this name already exists.");
         }
         return activityRepository.save(activity);
     }
