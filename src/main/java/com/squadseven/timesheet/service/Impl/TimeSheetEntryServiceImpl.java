@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class TimeSheetEntryServiceImpl implements TimeSheetEntry {
@@ -21,6 +22,7 @@ public class TimeSheetEntryServiceImpl implements TimeSheetEntry {
     @Override
     public Optional<TimeSheetEntryModel> getContactorIdByEntryId(Integer EntryId){
         return tseRepo.findById(EntryId);
+//        return timeSheetEntry().stream().filter((x) -> x.getContractorId().equals(EntryId)).collect(Collectors.toList());
     }
 
     @Override
@@ -28,7 +30,7 @@ public class TimeSheetEntryServiceImpl implements TimeSheetEntry {
         return tseRepo.save(tSEM);
     }
 
-    private List<TimeSheetEntryModel> getBookList(){
+    private List<TimeSheetEntryModel> timeSheetEntry(){
         return Arrays.asList(new TimeSheetEntryModel(1, 1, 214, 400, new Date(), 2, "Good" ),
                 new TimeSheetEntryModel(1, 1, 214, 400, new Date(), 2, "Good" ),
                 new TimeSheetEntryModel(1, 1, 214, 400, new Date(), 2, "Good" ),

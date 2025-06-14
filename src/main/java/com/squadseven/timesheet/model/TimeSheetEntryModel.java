@@ -10,7 +10,6 @@ import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
-@Data
 public class TimeSheetEntryModel {
 
     @Id
@@ -30,6 +29,62 @@ public class TimeSheetEntryModel {
         ActivityCode = activityCode;
         this.date = date;
         HoursWorked = hoursWorked;
+        Comments = comments;
+    }
+
+    public Integer getEntryId() {
+        return EntryId;
+    }
+
+    public void setEntryId(Integer entryId) {
+        EntryId = entryId;
+    }
+
+    public Integer getContractorId() {
+        return ContractorId;
+    }
+
+    public void setContractorId(Integer contractorId) {
+        ContractorId = contractorId;
+    }
+
+    public Integer getProjectCode() {
+        return ProjectCode;
+    }
+
+    public void setProjectCode(Integer projectCode) {
+        ProjectCode = projectCode;
+    }
+
+    public Integer getActivityCode() {
+        return ActivityCode;
+    }
+
+    public void setActivityCode(Integer activityCode) {
+        ActivityCode = activityCode;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Integer getHoursWorked() {
+        return HoursWorked;
+    }
+
+    public void setHoursWorked(Integer hoursWorked) {
+        HoursWorked = hoursWorked;
+    }
+
+    public String getComments() {
+        return Comments;
+    }
+
+    public void setComments(String comments) {
         Comments = comments;
     }
 }
