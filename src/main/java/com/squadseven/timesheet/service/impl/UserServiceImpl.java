@@ -1,4 +1,4 @@
-package com.squadseven.timesheet.service.impl;
+package com.squadseven.timesheet.service.Impl;
 
 import com.squadseven.timesheet.model.User;
 import com.squadseven.timesheet.repository.UserRepository;
