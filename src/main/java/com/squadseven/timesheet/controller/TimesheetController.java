@@ -20,11 +20,13 @@ public class TimesheetController {
     @Autowired
     private TimesheetService timesheetService;
 
+    // Get all the timesheet
     @GetMapping
     public List<Timesheet> getAllTimeSheet() {
         return timesheetService.getAllTimesheet();
     }
 
+    // Insert initial timesheet entry
     @PostMapping
     public Timesheet create(@RequestBody Timesheet timesheet) {
         return timesheetService.createTimesheet(timesheet);

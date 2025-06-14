@@ -1,8 +1,7 @@
-package com.squadseven.timesheet;
+package com.squadseven.timesheet.service;
 
 import com.squadseven.timesheet.model.Activity;
 import com.squadseven.timesheet.repository.ActivityRepository;
-import com.squadseven.timesheet.service.ActivityService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
