@@ -15,12 +15,13 @@ public class ActivityController {
     @Autowired
     private ActivityService activityService;
 
+    // Get all the activity List
     @GetMapping
     public List<Activity> getAll() {
         return activityService.getAllActivities();
     }
 
-
+    // Add new activity in to the database
     @PostMapping
     public Activity create(@RequestBody Activity Activity) {
         return activityService.createActivity(Activity);
