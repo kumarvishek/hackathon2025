@@ -29,4 +29,7 @@ public class TimesheetService {
         return timesheetRepository.save(timesheet);
     }
 
+    public String submitTimesheet(Long timesheetId, Long contractorId) {
+        return "SUCCESS";
+    }
 }
