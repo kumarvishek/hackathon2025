@@ -20,4 +20,5 @@ public class Timesheet {
     private Date week_start;
     private String status;
     private int totalHours;
+    private String message;
 }
