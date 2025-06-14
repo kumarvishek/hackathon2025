@@ -19,9 +19,15 @@ public class GlobalExceptionHandler {
                 .body(error);
     }
     @ExceptionHandler(ActivityException.class)
-    public ResponseEntity<BaseError> ActivityException(Exception ex) {
+    public ResponseEntity<BaseError> activityException(Exception ex) {
         BaseError error = new BaseError(ACTIVITY_ERROR_ID,ex.getMessage());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(error);
+    }
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<BaseError> illegalArgumentExceptionHandler(Exception ex) {
+        BaseError error = new BaseError(ACTIVITY_ERROR_ID,ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(error);
     }
 }

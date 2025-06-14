@@ -1,15 +1,11 @@
 package com.squadseven.timesheet.controller;
 
-import com.squadseven.timesheet.helper.JsonResponse;
 import com.squadseven.timesheet.model.Project;
 import com.squadseven.timesheet.service.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/projects")
@@ -23,7 +19,6 @@ public class ProjectController {
     @PostMapping
     public ResponseEntity<Project> createProject(@RequestBody Project project) {
         Project savedProject = projectService.saveProject(project);
-
         return ResponseEntity.ok(savedProject);
     }
 }
