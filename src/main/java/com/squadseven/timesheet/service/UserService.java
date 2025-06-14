@@ -1,32 +1,20 @@
 package com.squadseven.timesheet.service;
 
 import com.squadseven.timesheet.model.User;
-import com.squadseven.timesheet.repository.UserRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class UserService {
+public interface UserService {
+    
+    List<User> getAllUsers();
 
-    @Autowired
-    private UserRepository userRepository;
+    Optional<User> getUserById(Long id);
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
+    User createUser(User user);
 
-    public Optional<User> getUserById(Long id) {
-        return userRepository.findById(id);
-    }
+    void deleteUser(Long id);
 
-    public User createUser(User user) {
-        return userRepository.save(user);
-    }
-
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
-    }
+    Optional<User> getByUsernameAndPassword(String username, String password);
 }
