@@ -19,16 +19,8 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User> getUserById(Long id) {
-        return userRepository.findById(id);
-    }
-
     public User createUser(User user) {
         return userRepository.save(user);
-    }
-
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
     }
 
     public Optional<User> getByUsernameAndPassword(String username, String password) {

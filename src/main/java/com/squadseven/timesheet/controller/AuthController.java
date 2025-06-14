@@ -8,10 +8,7 @@ import com.squadseven.timesheet.service.UserService;
 import com.squadseven.timesheet.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -32,5 +29,10 @@ public class AuthController {
 
         String token = jwtUtil.generateToken(user);
         return ResponseEntity.ok(new JwtResponse(token));
+    }
+
+    @GetMapping("/users")
+    public ResponseEntity<?> getllUsers() {
+        return (ResponseEntity<?>) userService.getAllUsers();
     }
 }
