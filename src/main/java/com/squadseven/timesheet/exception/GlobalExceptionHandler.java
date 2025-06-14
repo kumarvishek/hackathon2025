@@ -7,8 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import static com.squadseven.timesheet.util.Constants.INTERNAL_SERVER_ERROR_ID;
-import static com.squadseven.timesheet.util.Constants.INTERNAL_SERVER_ERROR_MESSAGE;
+import static com.squadseven.timesheet.util.Constants.*;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -16,6 +15,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<BaseError> handleGenericException(Exception ex) {
         BaseError error = new BaseError(INTERNAL_SERVER_ERROR_ID,INTERNAL_SERVER_ERROR_MESSAGE);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(error);
+    }
+    @ExceptionHandler(ActivityException.class)
+    public ResponseEntity<BaseError> ActivityException(Exception ex) {
+        BaseError error = new BaseError(ACTIVITY_ERROR_ID,ex.getMessage());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(error);
     }
