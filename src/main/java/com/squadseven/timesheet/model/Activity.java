@@ -13,4 +13,6 @@ public class Activity {
     @Column(unique = true)
     private String name;
 
+    public Activity(int i, String development) {
+    }
 }
