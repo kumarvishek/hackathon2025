@@ -12,19 +12,10 @@ public class Timesheet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "id", nullable = false)
-    private Project project;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
-    private User contractor;
-
+    private String project;
+    private String contractor;
     private Date week_start;
     private String status;
     private int totalHours;
     private String message;
-
-    @OneToMany(mappedBy = "timesheet", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<TimeSheetEntryModel> entries;
 }

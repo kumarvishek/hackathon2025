@@ -1,17 +1,14 @@
 package com.squadseven.timesheet.service;
 
-import com.squadseven.timesheet.exception.ActivityException;
-import com.squadseven.timesheet.model.Activity;
+import com.squadseven.timesheet.model.Project;
 import com.squadseven.timesheet.model.Timesheet;
 import com.squadseven.timesheet.model.User;
 import com.squadseven.timesheet.repository.TimesheetRepository;
-import com.squadseven.timesheet.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 import static com.squadseven.timesheet.util.Constants.DRAFT;
 
