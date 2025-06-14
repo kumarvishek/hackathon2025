@@ -1,11 +1,10 @@
 package com.squadseven.timesheet.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -14,11 +13,22 @@ public class TimeSheetEntryModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer EntryId;
-    private Integer ContractorId;
-    private Integer ProjectCode;
-    private Integer ActivityCode;
-    private Date date;
-    private Integer HoursWorked;
-    private String Comments;
+    private Long entryId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "timesheet_id", nullable = false)
+    private Timesheet timesheet;
+
+    @ManyToOne
+    @JoinColumn(name = "id", nullable = false)
+    private Activity activity;
+
+    @Column(name = "entry_date", nullable = false)
+    private LocalDate entryDate;
+
+    @Column(nullable = false, precision = 4, scale = 2)
+    private BigDecimal hours;
+
+    @Column(columnDefinition = "TEXT")
+    private String notes;
 }
